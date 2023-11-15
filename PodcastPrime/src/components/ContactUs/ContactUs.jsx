@@ -39,7 +39,7 @@ const ContactUs = () => {
     };
   
     return (
-      <>
+      <div className='contactUsContainer'>
         <h2 className="head-text-footer">Contact Us
         </h2>
   
@@ -79,7 +79,7 @@ const ContactUs = () => {
             </h3>
           </div>
         )}
-      </>
+      </div>
     );
 }
 
