@@ -27,7 +27,7 @@ const ContactUs = () => {
         email: formData.email,
         message: formData.message,
       };
-      const res = await axiosInstance.post("/", contact);
+      const res = await axiosInstance.post("contact", contact);
       setIsFormSubmitted(true);
   
     //   client.create(contact)
