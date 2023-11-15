@@ -3,6 +3,7 @@ const Contact = require('../model/contact');
 
 router.post('/',async (req,res)=>{
 
+    console.log(req.body)
     const newContact = new Contact({
         name : req.body.name,
         email : req.body.email,
@@ -14,6 +15,7 @@ router.post('/',async (req,res)=>{
         return res.status(201).json(con);
     }
     catch(error){
+        console.log(req.body)
         return res.status(500).json(error);
     }
 
