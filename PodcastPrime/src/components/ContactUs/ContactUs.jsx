@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import axios from "axios";
 import emails from './assets/email.png';
 import mobile from './assets/mobile.png';
 
@@ -12,13 +12,13 @@ const ContactUs = () => {
     const [loading, setLoading] = useState(false);
   
     const { username, email, message } = formData;
-  
+    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,});
     const handleChangeInput = (e) => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
     };
   
-    const handleSubmit = () => {
+    const handleSubmit = async() => {
       setLoading(true);
   
       const contact = {
@@ -27,6 +27,8 @@ const ContactUs = () => {
         email: formData.email,
         message: formData.message,
       };
+      const res = await axios.post("http://localhost:8900/api/contact/", contact);
+      setIsFormSubmitted(true);
   
     //   client.create(contact)
     //     .then(() => {
