@@ -50,6 +50,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
+            <Link to="/ContactUs" activeClassName="active">
+            ContactUs
+              </Link>
+            </li>
+            <li>
                 <span style={{color:'wheat'}}>{localStorage.getItem('users') && JSON.parse(localStorage.getItem('users')).username}</span>
             </li>
             <li>

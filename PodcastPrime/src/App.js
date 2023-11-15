@@ -10,6 +10,7 @@ import Home from './components/HomeF/Home';
 import Alert from './components/Alert';
 import Watch from './components/WatchF/Watch';
 import ContinueList from './components/Continue Watching/ContinueList';
+import ContactUs from './components/ContactUs/ContactUs';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route exact path="/signin/" element={<SignIn showAlert={showAlert}/>}/>   
             {/* <Route exact path="/signup/" element={localStorage.getItem('users')?<Navigate to="/" />:<Signup showAlert={showAlert}/>}/> */}
             <Route exact path="/signup/" element={<Signup showAlert={showAlert}/>}/>
+            <Route exact path="/contactus/" element={<ContactUs showAlert={showAlert}/>}/>
             <Route exact path="/watch/" element= {!localStorage.getItem('users')?<Navigate to="/signin" />:<Watch showAlert={showAlert}/>}/>
           </Routes>
       </div>
