@@ -12,7 +12,7 @@ const ContactUs = () => {
     const [loading, setLoading] = useState(false);
   
     const { username, email, message } = formData;
-    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,});
+    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL});
     const handleChangeInput = (e) => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
@@ -27,7 +27,7 @@ const ContactUs = () => {
         email: formData.email,
         message: formData.message,
       };
-      const res = await axios.post("http://localhost:8900/api/contact/", contact);
+      const res = await axiosInstance.post("/", contact);
       setIsFormSubmitted(true);
   
     //   client.create(contact)

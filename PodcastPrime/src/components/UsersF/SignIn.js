@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 export default function SignIn(props) {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,});
+  const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL});
   let navigate = useNavigate(); //for history
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8900/api/auth/login", credentials);
+      const res = await axiosInstance.post("auth/login", credentials);
       localStorage.setItem("users", JSON.stringify(res.data));
       props.showAlert("Logged in Successfully", "success");
       navigate("/");
